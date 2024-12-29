@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Quiz Template</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to bottom, #ffedcc, #fff7e6);
+            font-family: Arial, sans-serif;
+        }
+
+        .quiz-container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .progress-bar {
+            height: 8px;
+        }
+
+        .question {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .option {
+            margin-bottom: 15px;
+        }
+
+        .btn-next {
+            background-color: #ffd966;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .btn-next:hover {
+            background-color: #ffcc33;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <div class="progress mb-4">
+            <div class="progress-bar" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+
+        <div id="quiz-step-1" class="quiz-step">
+            <div class="question">What is Your Workplace?</div>
+            <form>
+                <div class="form-check option">
+                    <input class="form-check-input" type="radio" name="workplace" id="option1">
+                    <label class="form-check-label" for="option1">A place where people don’t question my authority</label>
+                </div>
+                <div class="form-check option">
+                    <input class="form-check-input" type="radio" name="workplace" id="option2">
+                    <label class="form-check-label" for="option2">Where ever my best friends are, that’s where I want to be</label>
+                </div>
+                <div class="form-check option">
+                    <input class="form-check-input" type="radio" name="workplace" id="option3">
+                    <label class="form-check-label" for="option3">One that’s organized, structured and has workplace policies set</label>
+                </div>
+                <div class="form-check option">
+                    <input class="form-check-input" type="radio" name="workplace" id="option4">
+                    <label class="form-check-label" for="option4">A place where everyone knows I’m the boss</label>
+                </div>
+                <div class="form-check option">
+                    <input class="form-check-input" type="radio" name="workplace" id="option5">
+                    <label class="form-check-label" for="option5">A place where I’m the CEO</label>
+                </div>
+            </form>
+
+            <button class="btn btn-next mt-4 w-100">NEXT QUESTION</button>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to handle quiz navigation and progress bar
+        document.querySelector('.btn-next').addEventListener('click', () => {
+            const progressBar = document.querySelector('.progress-bar');
+            let currentProgress = parseInt(progressBar.style.width);
+
+            // Simulate moving to the next step
+            if (currentProgress < 100) {
+                progressBar.style.width = `${currentProgress + 20}%`;
+                progressBar.setAttribute('aria-valuenow', currentProgress + 20);
+            }
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
